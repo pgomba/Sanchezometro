@@ -27,20 +27,17 @@ publico_text <-read_html("https://www.publico.es/")%>%
   html_nodes(".title a")%>%
   html_text2()
 
-okdiaro<-length(grep("Sánchez", okdiario_text))
+okdiario<-length(grep("Sánchez", okdiario_text))
 elpais<-length(grep("Sánchez", elpais_text))
 elmundo<-length(grep("Sánchez", elmundo_text))
 minutos<-length(grep("Sánchez", minutos_text))
 abc<-length(grep("Sánchez", abc_text))
 publico<-length(grep("Sánchez", publico_text))
 
-temp_df<-data.frame(date,okdiaro,elpais,elmundo,minutos,abc,publico)
+temp_df<-data.frame(date,okdiario,elpais,elmundo,minutos,abc,publico)
 
-url<-read.csv("https://raw.githubusercontent.com/pgomba/sanchezometro/main/sanchez_data/sanchez_counter.csv")
+url<-read_csv("https://raw.githubusercontent.com/pgomba/sanchezometro/main/sanchez_data/sanchez_counter.csv",col_types = "ciiiiii")
 
 sanchez_values<-bind_rows(url,temp_df)
-
-
-
 
 write.csv(sanchez_values,row.names = FALSE,paste0("sanchez_data/sanchez_counter.csv"))
