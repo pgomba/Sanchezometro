@@ -28,11 +28,11 @@ publico_text <-read_html("https://www.publico.es/")%>%
   html_text2()
 
 okdiaro<-length(grep("Sánchez", okdiario_text))
-elpais<-(grep("Sánchez", elpais_text))
-elmundo<-(grep("Sánchez", elmundo_text))
-minutos<-(grep("Sánchez", minutos_text))
-abc<-(grep("Sánchez", abc_text))
-publico<-(grep("Sánchez", publico_text))
+elpais<-length(grep("Sánchez", elpais_text))
+elmundo<-length(grep("Sánchez", elmundo_text))
+minutos<-length(grep("Sánchez", minutos_text))
+abc<-length(grep("Sánchez", abc_text))
+publico<-length(grep("Sánchez", publico_text))
 
 temp_df<-data.frame(date,okdiaro,elpais,elmundo,minutos,abc,publico)
 
