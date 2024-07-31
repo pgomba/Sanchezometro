@@ -1,7 +1,7 @@
 library(tidyverse)
 library(rvest)
 
-date<-Sys.Date()
+date<-as.character(Sys.Date())
 
 okdiario_text<-read_html("https://okdiario.com/")%>%
   html_nodes(".segmento-link")%>%
@@ -39,6 +39,8 @@ temp_df<-data.frame(date,okdiaro,elpais,elmundo,minutos,abc,publico)
 url<-read.csv("https://raw.githubusercontent.com/pgomba/sanchezometro/main/sanchez_data/sanchez_counter.csv")
 
 sanchez_values<-bind_rows(url,temp_df)
+
+
 
 
 write.csv(sanchez_values,row.names = FALSE,paste0("sanchez_data/sanchez_counter.csv"))
