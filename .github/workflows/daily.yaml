@@ -4,7 +4,7 @@ on:
   schedule:
     - cron: '0 10 * * *'  # Run every day at 10
     
-name: schedule-commit
+name: daily
 permissions:
   contents: write
 jobs:
